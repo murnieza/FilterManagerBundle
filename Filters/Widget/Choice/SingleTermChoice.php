@@ -18,12 +18,12 @@ use ONGR\ElasticsearchBundle\DSL\Search;
 use ONGR\ElasticsearchBundle\Result\Aggregation\ValueAggregation;
 use ONGR\ElasticsearchBundle\Result\DocumentIterator;
 use ONGR\FilterManagerBundle\Filters\FilterState;
-use ONGR\FilterManagerBundle\Filters\Helper\ViewDataFactoryInterface;
-use ONGR\FilterManagerBundle\Filters\ViewData\ChoicesAwareViewData;
-use ONGR\FilterManagerBundle\Filters\ViewData;
-use ONGR\FilterManagerBundle\Filters\Widget\AbstractSingleRequestValueFilter;
 use ONGR\FilterManagerBundle\Filters\Helper\FieldAwareInterface;
 use ONGR\FilterManagerBundle\Filters\Helper\FieldAwareTrait;
+use ONGR\FilterManagerBundle\Filters\Helper\ViewDataFactoryInterface;
+use ONGR\FilterManagerBundle\Filters\ViewData;
+use ONGR\FilterManagerBundle\Filters\ViewData\ChoicesAwareViewData;
+use ONGR\FilterManagerBundle\Filters\Widget\AbstractSingleRequestValueFilter;
 use ONGR\FilterManagerBundle\Search\SearchRequest;
 
 /**
@@ -77,7 +77,7 @@ class SingleTermChoice extends AbstractSingleRequestValueFilter implements Field
             $agg->setOrder($this->sortType['type'], $this->sortType['order']);
         }
 
-        if ($relatedSearch->getPostFilters() && $relatedSearch->getPostFilters()->isRelevant()) {
+        if ($relatedSearch->getPostFilters()/* && $relatedSearch->getPostFilters()->isRelevant()*/) {
             $filterAgg = new FilterAggregation($name . '-filter');
             $filterAgg->setFilter($relatedSearch->getPostFilters());
             $filterAgg->addAggregation($agg);
