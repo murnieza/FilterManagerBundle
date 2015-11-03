@@ -1,10 +1,9 @@
-Pager Filter
-============
-
+Pager Filter  
+============  
 Filter which provides pagination functionality by returning documents for the selected page.
-
+  
 For example, lets say we have `item` repository which contains the following data:
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -18,9 +17,9 @@ For example, lets say we have `item` repository which contains the following dat
 +---------+------------+
 | 5       | blue       |
 +---------+------------+
-
+  
 If we have a pager filter with `count_per_page` set to `2` and we request for the second page we will get:
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -28,10 +27,9 @@ If we have a pager filter with `count_per_page` set to `2` and we request for th
 +---------+------------+
 | 4       | green      |
 +---------+------------+
-
-Configuration
--------------
-
+  
+Configuration  
+-------------  
 +------------------------+--------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                              |
 +========================+======================================================================================+
@@ -43,13 +41,13 @@ Configuration
 +------------------------+--------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.             |
 +------------------------+--------------------------------------------------------------------------------------+
-
+  
 Example:
-
+  
 .. code-block:: yaml
-
+  
     # app/config/config.yml
-    
+  
     ongr_filter_manager:
         managers:
             item_list:
@@ -62,12 +60,11 @@ Example:
                     request_field: 'page'
                     count_per_page: 9
                     max_pages: 6
-
-..
+  
+..  
 
 Twig view data
 --------------
-
 View data returned by this filter to be used in template:
 
 +-------------------------+--------------------------------------------------+
@@ -90,13 +87,12 @@ View data returned by this filter to be used in template:
 
 Template variables
 ------------------
-
 To add pagination in twig template add this:
 
 .. code-block:: twig
-
+  
     {{ ongr_paginate(filter_manager.filters.list_pager.getPager(), 'ongr_search_page') }}
-
-..
+  
+..  
 
 Where first parameter is PagerService and second parameter is routing name.

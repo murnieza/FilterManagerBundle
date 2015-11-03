@@ -1,11 +1,10 @@
-Document Field Filter
-=====================
-
+Document Field Filter  
+=====================  
 This filter gets a document from request and filters results by its id on the specified field.
 This is very useful if you want to get documents by a category.
-
+  
 For example, lets say we have `item` repository which contains the following data:
-
+  
 +-------+-------------+
 | color | category_id |
 +=======+=============+
@@ -19,18 +18,17 @@ For example, lets say we have `item` repository which contains the following dat
 +-------+-------------+
 | blue  | 1           |
 +-------+-------------+
-
+  
 Lets say we apply *document filter* and send a request with a category item, which has id value of 3, we will get:
-
+  
 +-------+-------------+
 | color | category_id |
 +=======+=============+
 | red   | 3           |
 +-------+-------------+
-
-Configuration
--------------
-
+  
+Configuration  
+-------------  
 +------------------------+--------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                              |
 +========================+======================================================================================+
@@ -40,13 +38,13 @@ Configuration
 +------------------------+--------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.             |
 +------------------------+--------------------------------------------------------------------------------------+
-
+  
 Example:
-
+  
 .. code-block:: yaml
-
+  
     # app/config/config.yml
-    
+  
     ongr_filter_manager:
         managers:
             item_list:
@@ -58,12 +56,11 @@ Example:
                 colors:
                     request_field: 'category'
                     field: category_id
-
-..
+  
+..  
 
 Twig view data
 --------------
-
 View data returned by this filter to be used in template:
 
 +-------------------------+--------------------------------------------------+
@@ -81,4 +78,3 @@ View data returned by this filter to be used in template:
 +-------------------------+--------------------------------------------------+
 | hasTag($tag)            | Checks if filter has the specific tag            |
 +-------------------------+--------------------------------------------------+
-

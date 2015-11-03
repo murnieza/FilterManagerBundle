@@ -1,12 +1,11 @@
-Multiple Choice Filter
-======================
-
+Multiple Choice Filter  
+======================  
 This filter is very similar to choice filter, but you can select multiple options.
 It groups values of a repository in a specified field and returns available options.
 If you select one or more of the options, *multi choice filter* will return item list filtered by the selected options.
-
+  
 For example, lets say we have `item` repository which contains the following data:
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -20,10 +19,10 @@ For example, lets say we have `item` repository which contains the following dat
 +---------+------------+
 | 5       | blue       |
 +---------+------------+
-
+  
 If we apply *multi choice filter* on field `item_color`, it will return
-
-
+  
+  
 +-------------+
 | choices     |
 +=============+
@@ -34,9 +33,9 @@ If we apply *multi choice filter* on field `item_color`, it will return
 +-------------+
 | blue        |
 +-------------+
-
+  
 We can then select multiple values from this list and get all items for it, let's say we select choices `blue` and `green`.
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -46,10 +45,9 @@ We can then select multiple values from this list and get all items for it, let'
 +---------+------------+
 | 5       | blue       |
 +---------+------------+
-
-Configuration
--------------
-
+  
+Configuration  
+-------------  
 +------------------------+--------------------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                                          |
 +========================+==================================================================================================+
@@ -61,13 +59,13 @@ Configuration
 +------------------------+--------------------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.                         |
 +------------------------+--------------------------------------------------------------------------------------------------+
-
+  
 Example:
-
+  
 .. code-block:: yaml
-
+  
     # app/config/config.yml
-    
+  
     ongr_filter_manager:
         managers:
             item_list:
@@ -79,12 +77,11 @@ Example:
                 colors:
                     request_field: 'colors'
                     field: item_colors
-
-..
+  
+..  
 
 Twig view data
 --------------
-
 View data returned by this filter to be used in template:
 
 +-------------------------+--------------------------------------------------+

@@ -3,16 +3,15 @@ Custom Filter
 
 There is possibility to add custom filters to filter managers.
 You must create filter class, define it as a service with ``ongr_filter_manager.filter`` tag.
-
-1. Create filter class
-----------------------
-
+  
+1. Create filter class  
+----------------------  
 Class must implement ``FilterInterface``.
-
+  
 .. code-block:: php
-
+  
    # File location: ONGR\FilterManagerBundle\Filters\FilterInterface.pnp
-
+  
    /**
      * Resolves filter state by given request.
      *
@@ -21,7 +20,7 @@ Class must implement ``FilterInterface``.
      * @return FilterState
      */
     public function getState(Request $request);
-
+  
     /**
      * Modifies search request by given state. Usually should be used to add query or post_filter parameters.
      *
@@ -30,7 +29,7 @@ Class must implement ``FilterInterface``.
      * @param SearchRequest $request State of all filters.
      */
     public function modifySearch(Search $search, FilterState $state = null, SearchRequest $request = null);
-
+  
     /**
      * Modifies search request by given state and related search. Usually is used to add aggregations into query.
      *
@@ -45,7 +44,7 @@ Class must implement ``FilterInterface``.
      * @return mixed
      */
     public function preProcessSearch(Search $search, Search $relatedSearch, FilterState $state = null);
-
+  
     /**
      * Prepares all needed filter data to pass into view.
      *
@@ -55,7 +54,7 @@ Class must implement ``FilterInterface``.
      * @return ViewData
      */
     public function getViewData(DocumentIterator $result, ViewData $data);
-
+  
     /**
      * Returns all tags assigned to the filter.
      *
@@ -70,10 +69,10 @@ Class must implement ``FilterInterface``.
 Filter service must be tagged with ``ongr_filter_manager.filter`` tag, ``filter_name`` node is required.
 
 .. code-block:: yaml
-
+  
     parameters:
       ongr_filter_manager.filter.foo_range.class: ONGR\FilterManagerBundle\Tests\app\fixture\Acme\TestBundle\Filters\FooRange\FooRange
-
+  
     services:
       ongr_filter_manager.filter.foo_range:
         class: %ongr_filter_manager.filter.foo_range.class%
@@ -84,19 +83,19 @@ Filter service must be tagged with ``ongr_filter_manager.filter`` tag, ``filter_
             - { name: ongr_filter_manager.filter, filter_name: foo_range }
 
 Arguments from service definition can be passed to filters constructor.
-
+  
 .. code-block:: php
-
+  
     # File location: ONGR\FilterManagerBundle\Tests\app\fixture\Acme\TestBundle\Filters\FooRange\FooRange.php;
-
+  
     /**
      * @param string $requestField
      * @param string $field
      */
     public function __construct($requestField, $field)
-    {
-        $this->setRequestField($requestField);
-        $this->setField($field);
+    {  
+        $this-&gt;setRequestField($requestField);
+        $this-&gt;setField($field);
     }
 
 Filter example can be found `here <https://github.com/ongr-io/FilterManagerBundle/blob/master/Tests/app/fixture/Acme/TestBundle/Filters/FooRange/FooRange.php>`_.

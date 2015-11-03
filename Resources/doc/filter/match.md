@@ -1,10 +1,9 @@
-Match Filter
-============
-
+Match Filter  
+============  
 This filter searches for a matching value in the specified field.
-
+  
 For example, lets say we have `item` repository which contains the following data:
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -18,9 +17,9 @@ For example, lets say we have `item` repository which contains the following dat
 +---------+------------+
 | 5       | blue       |
 +---------+------------+
-
+  
 If we apply *match filter* on item_colors field with a value of `red`, we will get:
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -28,11 +27,10 @@ If we apply *match filter* on item_colors field with a value of `red`, we will g
 +---------+------------+
 | 2       | red        |
 +---------+------------+
-
-~~~~~~~~~~~~~
-Configuration
-~~~~~~~~~~~~~
-
+  
+~~~~~~~~~~~~~  
+Configuration  
+~~~~~~~~~~~~~  
 +------------------------+--------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                              |
 +========================+======================================================================================+
@@ -42,13 +40,13 @@ Configuration
 +------------------------+--------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.             |
 +------------------------+--------------------------------------------------------------------------------------+
-
+  
 Example:
-
+  
 .. code-block:: yaml
-
+  
     # app/config/config.yml
-    
+  
     ongr_filter_manager:
         managers:
             item_list:
@@ -60,15 +58,14 @@ Example:
                 search:
                     request_field: 'color'
                     field: item_colors
-
-..
+  
+..  
 
 ~~~~~~~~~~~~~~
-Twig view data
-~~~~~~~~~~~~~~
-
+Twig view data  
+~~~~~~~~~~~~~~  
 View data returned by this filter to be used in template:
-
+  
 +-------------------------+--------------------------------------------------+
 | Method                  | Value                                            |
 +=========================+==================================================+
@@ -84,9 +81,9 @@ View data returned by this filter to be used in template:
 +-------------------------+--------------------------------------------------+
 | hasTag($tag)            | Checks if filter has the specific tag            |
 +-------------------------+--------------------------------------------------+
-
-* `Choice filter <choice.html>`_
-* `Multi choice filter <multi_choice.html>`_
-* `Document field filter <document_field.html>`_
-* `Pager filter <pager.html>`_
-* `Sort filter <sort.html>`_
+  
+* `Choice filter &lt;choice.html&gt;`_
+* `Multi choice filter &lt;multi_choice.html&gt;`_
+* `Document field filter &lt;document_field.html&gt;`_
+* `Pager filter &lt;pager.html&gt;`_
+* `Sort filter &lt;sort.html&gt;`_

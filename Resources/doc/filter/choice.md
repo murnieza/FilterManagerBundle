@@ -1,11 +1,10 @@
-Choice Filter
-=============
-
+Choice Filter  
+=============  
 This filter groups values of repository in a specified field, and returns available options.
 If you select one of the options, *choice filter* will return item list filtered by it.
-
+  
 For example, lets say we have `item` repository which contains the following data:
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -19,9 +18,9 @@ For example, lets say we have `item` repository which contains the following dat
 +---------+------------+
 | 5       | blue       |
 +---------+------------+
-
+  
 If we apply *choice filter* on field `item_color`, it will return
-
+  
 +-------------+
 | choices     |
 +=============+
@@ -31,9 +30,9 @@ If we apply *choice filter* on field `item_color`, it will return
 +-------------+
 | blue        |
 +-------------+
-
+  
 We can then select a value from this list and get all items for it, lets say we select the choice `blue`.
-
+  
 +---------+------------+
 | item_id | item_color |
 +=========+============+
@@ -41,10 +40,9 @@ We can then select a value from this list and get all items for it, lets say we 
 +---------+------------+
 | 5       | blue       |
 +---------+------------+
-
-Configuration
--------------
-
+  
+Configuration  
+-------------  
 +------------------------+--------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                              |
 +========================+======================================================================================+
@@ -56,10 +54,9 @@ Configuration
 +------------------------+--------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.             |
 +------------------------+--------------------------------------------------------------------------------------+
-
-Sorting configuration
----------------------
-
+  
+Sorting configuration  
+---------------------  
 +------------------------+------------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                                  |
 +========================+==========================================================================================+
@@ -69,13 +66,13 @@ Sorting configuration
 +------------------------+------------------------------------------------------------------------------------------+
 | `priority`             | Highest priority term names, the first terms to be shown in choices list.                |
 +------------------------+------------------------------------------------------------------------------------------+
-
+  
 Example:
-
+  
 .. code-block:: yaml
-
+  
     # app/config/config.yml
-    
+  
     ongr_filter_manager:
         managers:
             item_list:
@@ -92,12 +89,11 @@ Example:
                       order: asc
                       priorities:
                          - red
-
-..
+  
+..  
 
 Twig view data
 --------------
-
 View data returned by this filter to be used in template:
 
 +-------------------------+--------------------------------------------------+
@@ -133,4 +129,3 @@ Each choice has its own data:
 +--------------------+--------------------------------------------+
 | getUrlParameters() | Returns a list of available choices        |
 +--------------------+--------------------------------------------+
-
