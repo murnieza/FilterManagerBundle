@@ -6,24 +6,24 @@ Installation
 
 Installation is a quick 5 step process:
 
-[setup](SET UP)
+[SET UP](setup.md)
 
 Bundle documentation
 --------------------
 
 Main things you should know while working with this bundle.
 
-[usage](Usage)
-[configuration](Configuration)
+[Usage](usage.md)
+[Configuration](configuration.md)
 Filters
 -------
 
 Filters provided by this bundle.
 
-[filters/choice](Choice)
-[filters/custom_filter](Custom filter)
-[filters/document_field](Document field)
-[filters/match](Match)
-[filters/multi_choice](Multi choice)
-[filters/pager](Pager)
-[filters/sort](Sort)
+- [Choice](filters/choice.md)
+- [Custom filter](filters/custom_filter.md)
+- [Document field](filters/document_field.md)
+- [Match](filters/match.md)
+- [Multi choice](filters/multi_choice.md)
+- [Pager](filters/pager.md)
+- [Sort](filters/sort.md)
