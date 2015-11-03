@@ -7,80 +7,54 @@ Filter used for sorting the documents.
 
 For example, let's say we have `item` repository which contains the following data:
 
-+---------+------------+
 | item_id | item_color |
-+=========+============+
+|---------|------------|
 | 1       | red        |
-+---------+------------+
 | 2       | red        |
-+---------+------------+
 | 3       | blue       |
-+---------+------------+
 | 4       | green      |
-+---------+------------+
 | 5       | blue       |
-+---------+------------+
 
 If we have a sort filter with choice to sort on `item_color` in descending order and this choice is selected, we will get:
 
-+---------+------------+
 | item_id | item_color |
-+=========+============+
+|---------|------------|
 | 1       | red        |
-+---------+------------+
 | 2       | red        |
-+---------+------------+
 | 4       | green      |
-+---------+------------+
 | 3       | blue       |
-+---------+------------+
 | 5       | blue       |
-+---------+------------+
 
 Configuration
 -------------
 
 First, you have to specify the request field:
 
-+------------------------+--------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                              |
-+========================+======================================================================================+
+|------------------------|--------------------------------------------------------------------------------------|
 | `request_field`        | Request field used to pass the sort choice id (e.g. `www.page.com/?request_field=4`) |
-+------------------------+--------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.             |
-+------------------------+--------------------------------------------------------------------------------------+
 
 After which you can specify multiple sort options/choices:
 
-+------------------------+--------------------------------------------------------------------+
 | Setting name           | Meaning                                                            |
-+========================+====================================================================+
+|------------------------|--------------------------------------------------------------------|
 | `label`                | Choice name to be used in templates. (e.g. `Title descending`)     |
-+------------------------+--------------------------------------------------------------------+
 | `field`                | Specifies the field in repository to sort on. (e.g. `item_color`)  |
-+------------------------+--------------------------------------------------------------------+
 | `order`                | Order to sort by. Default `asc`. Valid values: `asc`,  `desc`.     |
-+------------------------+--------------------------------------------------------------------+
 | `default`              | Specifies whether this choice is the default one. Default `false`. |
-+------------------------+--------------------------------------------------------------------+
 | `mode`                 | For any arrays: `min`, `max`, for numeric arrays `avg`, `sum`.     |
-+------------------------+--------------------------------------------------------------------+
 | `fields`               | Array of fields to sort on. For more information see table below.  |
-+------------------------+--------------------------------------------------------------------+
 
 .. note:: `field`, `order`, and `mode` are ignored if at least one of fields is defined.
 
 Each object in `fields` array specifies sorting condition. Available parameters are defined below:
 
-+------------------------+--------------------------------------------------------------------+
 | Setting name           | Meaning                                                            |
-+========================+====================================================================+
+|------------------------|--------------------------------------------------------------------|
 | `field`                | Specifies the field in repository to sort on. (e.g. `item_color`)  |
-+------------------------+--------------------------------------------------------------------+
 | `order`                | Order to sort by. Default `asc`. Valid values: `asc`,  `desc`.     |
-+------------------------+--------------------------------------------------------------------+
 | `mode`                 | For any arrays: `min`, `max`, for numeric arrays `avg`, `sum`.     |
-+------------------------+--------------------------------------------------------------------+
 
 Example:
 
@@ -110,40 +84,26 @@ Twig view data
 
 View data returned by this filter to be used in template:
 
-+-------------------------+--------------------------------------------------+
 | Method                  | Value                                            |
-+=========================+==================================================+
+|-------------------------|--------------------------------------------------|
 | getName()               | Filter name                                      |
-+-------------------------+--------------------------------------------------+
 | getResetUrlParameters() | Url parameters required to reset filter          |
-+-------------------------+--------------------------------------------------+
 | getState()              | Filter state                                     |
-+-------------------------+--------------------------------------------------+
 | getUrlParameters()      | Url parameters representing current filter state |
-+-------------------------+--------------------------------------------------+
 | getChoices()            | Returns a list of available sort choices         |
-+-------------------------+--------------------------------------------------+
 | getTags()               | Lists all tags specified at filter configuration |
-+-------------------------+--------------------------------------------------+
 | hasTag($tag)            | Checks if filter has the specific tag            |
-+-------------------------+--------------------------------------------------+
 
 
 Each choice has its own data:
 
-+--------------------+--------------------------------------------+
 | Method             | Value                                      |
-+====================+============================================+
+|--------------------|--------------------------------------------|
 | isActive()         | Is this choice currently applied           |
-+--------------------+--------------------------------------------+
 | isDefault()        | Is this choice the default one             |
-+--------------------+--------------------------------------------+
 | getLabel()         | Choice label                               |
-+--------------------+--------------------------------------------+
 | getUrlParameters() | Returns a list of available choices        |
-+--------------------+--------------------------------------------+
 | getMode()          | Returns a mode value if is set             |
-+--------------------+--------------------------------------------+
 Convert to markdown  Clear
 
 Sort Filter  
@@ -152,79 +112,53 @@ Filter used for sorting the documents.
   
 For example, let's say we have `item` repository which contains the following data:
   
-+---------+------------+
 | item_id | item_color |
-+=========+============+
+|---------|------------|
 | 1       | red        |
-+---------+------------+
 | 2       | red        |
-+---------+------------+
 | 3       | blue       |
-+---------+------------+
 | 4       | green      |
-+---------+------------+
 | 5       | blue       |
-+---------+------------+
   
 If we have a sort filter with choice to sort on `item_color` in descending order and this choice is selected, we will get:
   
-+---------+------------+
 | item_id | item_color |
-+=========+============+
+|---------|------------|
 | 1       | red        |
-+---------+------------+
 | 2       | red        |
-+---------+------------+
 | 4       | green      |
-+---------+------------+
 | 3       | blue       |
-+---------+------------+
 | 5       | blue       |
-+---------+------------+
   
 Configuration  
 -------------  
 First, you have to specify the request field:
   
-+------------------------+--------------------------------------------------------------------------------------+
 | Setting name           | Meaning                                                                              |
-+========================+======================================================================================+
+|------------------------|--------------------------------------------------------------------------------------|
 | `request_field`        | Request field used to pass the sort choice id (e.g. `www.page.com/?request_field=4`) |
-+------------------------+--------------------------------------------------------------------------------------+
 | `tags`                 | Array of filter specific tags that will be accessible at Twig view data.             |
-+------------------------+--------------------------------------------------------------------------------------+
   
 After which you can specify multiple sort options/choices:
-  
-+------------------------+--------------------------------------------------------------------+
-| Setting name           | Meaning                                                            |
-+========================+====================================================================+
+ 
+| Setting name           | Meaning                                                            | 
+|------------------------|--------------------------------------------------------------------|
 | `label`                | Choice name to be used in templates. (e.g. `Title descending`)     |
-+------------------------+--------------------------------------------------------------------+
 | `field`                | Specifies the field in repository to sort on. (e.g. `item_color`)  |
-+------------------------+--------------------------------------------------------------------+
 | `order`                | Order to sort by. Default `asc`. Valid values: `asc`,  `desc`.     |
-+------------------------+--------------------------------------------------------------------+
 | `default`              | Specifies whether this choice is the default one. Default `false`. |
-+------------------------+--------------------------------------------------------------------+
 | `mode`                 | For any arrays: `min`, `max`, for numeric arrays `avg`, `sum`.     |
-+------------------------+--------------------------------------------------------------------+
 | `fields`               | Array of fields to sort on. For more information see table below.  |
-+------------------------+--------------------------------------------------------------------+
   
 .. note:: `field`, `order`, and `mode` are ignored if at least one of fields is defined.  
 
 Each object in `fields` array specifies sorting condition. Available parameters are defined below:
   
-+------------------------+--------------------------------------------------------------------+
 | Setting name           | Meaning                                                            |
-+========================+====================================================================+
+|------------------------|--------------------------------------------------------------------|
 | `field`                | Specifies the field in repository to sort on. (e.g. `item_color`)  |
-+------------------------+--------------------------------------------------------------------+
 | `order`                | Order to sort by. Default `asc`. Valid values: `asc`,  `desc`.     |
-+------------------------+--------------------------------------------------------------------+
 | `mode`                 | For any arrays: `min`, `max`, for numeric arrays `avg`, `sum`.     |
-+------------------------+--------------------------------------------------------------------+
   
 Example:
   
@@ -253,38 +187,24 @@ Twig view data
 --------------
 View data returned by this filter to be used in template:
 
-+-------------------------+--------------------------------------------------+
 | Method                  | Value                                            |
-+=========================+==================================================+
+|-------------------------|--------------------------------------------------|
 | getName()               | Filter name                                      |
-+-------------------------+--------------------------------------------------+
 | getResetUrlParameters() | Url parameters required to reset filter          |
-+-------------------------+--------------------------------------------------+
 | getState()              | Filter state                                     |
-+-------------------------+--------------------------------------------------+
 | getUrlParameters()      | Url parameters representing current filter state |
-+-------------------------+--------------------------------------------------+
 | getChoices()            | Returns a list of available sort choices         |
-+-------------------------+--------------------------------------------------+
 | getTags()               | Lists all tags specified at filter configuration |
-+-------------------------+--------------------------------------------------+
-| hasTag($tag)            | Checks if filter has the specific tag            |
-+-------------------------+--------------------------------------------------+
+| hasTag($tag)            | Checks if filtpecifies the field in repository to sort oer has the specific tag            |
 
 
 Each choice has its own data:
 
-+--------------------+--------------------------------------------+
 | Method             | Value                                      |
-+====================+============================================+
+|--------------------|--------------------------------------------|
 | isActive()         | Is this choice currently applied           |
-+--------------------+--------------------------------------------+
 | isDefault()        | Is this choice the default one             |
-+--------------------+--------------------------------------------+
 | getLabel()         | Choice label                               |
-+--------------------+--------------------------------------------+
 | getUrlParameters() | Returns a list of available choices        |
-+--------------------+--------------------------------------------+
 | getMode()          | Returns a mode value if is set             |
-+--------------------+--------------------------------------------+
 Mark It Down • code • email • Medusis
