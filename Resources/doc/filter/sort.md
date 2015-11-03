@@ -58,7 +58,7 @@ Each object in `fields` array specifies sorting condition. Available parameters 
 
 Example:
 
-.. code-block:: yaml
+```yaml
 
     # app/config/config.yml
     
@@ -77,7 +77,7 @@ Example:
                         - { label: Color descending, field: item_color, order: desc }
                         - { label: 'In stock & cheap', fields: [{field: stock, order: desc}, {field: price}] }
 
-..
+```
 
 Twig view data
 --------------
@@ -162,7 +162,7 @@ Each object in `fields` array specifies sorting condition. Available parameters 
   
 Example:
   
-.. code-block:: yaml
+```yaml
   
     # app/config/config.yml
   
@@ -181,7 +181,7 @@ Example:
                         - { label: Color descending, field: item_color, order: desc }
                         - { label: 'In stock & cheap', fields: [{field: stock, order: desc}, {field: price}] }
   
-..  
+```  
 
 Twig view data
 --------------

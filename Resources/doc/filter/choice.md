@@ -51,7 +51,7 @@ Sorting configuration
   
 Example:
   
-.. code-block:: yaml
+```yaml
   
     # app/config/config.yml
   
@@ -72,7 +72,7 @@ Example:
                       priorities:
                          - red
   
-..  
+```  
 
 Twig view data
 --------------

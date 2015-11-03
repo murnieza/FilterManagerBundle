@@ -30,7 +30,7 @@ Configuration
   
 Example:
   
-.. code-block:: yaml
+```yaml
   
     # app/config/config.yml
   
@@ -47,7 +47,7 @@ Example:
                     count_per_page: 9
                     max_pages: 6
   
-..  
+```
 
 Twig view data
 --------------
@@ -67,10 +67,10 @@ Template variables
 ------------------
 To add pagination in twig template add this:
 
-.. code-block:: twig
+```twig
   
     {{ ongr_paginate(filter_manager.filters.list_pager.getPager(), 'ongr_search_page') }}
   
-..  
+```
 
 Where first parameter is PagerService and second parameter is routing name.

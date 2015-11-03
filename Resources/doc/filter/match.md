@@ -30,7 +30,7 @@ Configuration
   
 Example:
   
-.. code-block:: yaml
+```yaml
   
     # app/config/config.yml
   
@@ -46,7 +46,7 @@ Example:
                     request_field: 'color'
                     field: item_colors
   
-..  
+```
 
 ~~~~~~~~~~~~~~
 Twig view data  
