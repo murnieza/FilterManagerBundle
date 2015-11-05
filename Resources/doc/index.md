@@ -8,13 +8,11 @@ Installation is a quick 5 step process:
 
 [SET UP](setup.md)
 
-Bundle documentation
+Sample use case
 --------------------
 
-Main things you should know while working with this bundle.
+Documentation provides example how search page can be implemented using Filter Manager Bundle. It can be found [there](search_example.md).
 
-[Usage](usage.md)
-[Configuration](configuration.md)
 Filters
 -------
 
