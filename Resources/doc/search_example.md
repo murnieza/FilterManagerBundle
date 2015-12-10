@@ -237,7 +237,7 @@ Previously we assigned several filters to `search_list` filter manager. They are
 
 Because filters have different types usually representation of them is different. Example of every filter can be found in dedicated filter type pages:
 - [Match](filter/match.md)
-- [Choice](filter/choice.md)
+- [Choice](filter/choice.md#usage-in-template-example)
 - [Multi choice](filter/multi_choice.md)
 - [Document field](filter/document_field.md)
 - [Pager](filter/pager.md)
