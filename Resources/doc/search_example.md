@@ -215,7 +215,7 @@ Last parameter is template to use, see below for more information
 
 Our template will be placed in AppBundle's `Resources/views/search.html.twig` file. This template will get `filter_manager` variable which contains all information related to our filtered list.
 
-# Listing documents from list
+### Listing documents
 
 Documents can be accessed through `filter_manager.getResult()`. To make a dummy list of results put following code to your template:
 
@@ -231,20 +231,14 @@ Documents can be accessed through `filter_manager.getResult()`. To make a dummy 
 {% endfor %}
 ```
 
-# Listing filters
+### Listing filters
 
 Previously we assigned several filters to `search_list` filter manager. They are accessible via `filter_manager.getFilters()`.
 
-This is an example how to print a list for color filter:
-
-```twig
-<ul>
-{% for choice in filter_manager.getFilters().color.getChoices() %}
-    <li>
-        <a href="{{ path(app.request.attributes.get('_route'), choice.getUrlParameters()) }}">{{ choice.getLabel() }}</a> ({{ choice.getCount() }})
-    </li>
-{% endfor %}
-</ul>
-```
-
-Now you have list of products and way to filter these products on given color.
+Because filters have different types usually representation of them is different. Example of every filter can be found in dedicated filter type pages:
+- [Match](filter/match.md)
+- [Choice](filter/choice.md)
+- [Multi choice](filter/multi_choice.md)
+- [Document field](filter/document_field.md)
+- [Pager](filter/pager.md)
+- [Sort](filter/sort.md)
