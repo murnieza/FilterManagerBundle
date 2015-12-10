@@ -52,7 +52,7 @@ class Product extends AbstractDocument
     /**
      * @var string
      *
-     * @ES\Property(name="weight", type="float", options={"index"="no"})
+     * @ES\Property(name="image", type="string", options={"index"="no"})
      */
     private $image;
 
@@ -160,7 +160,7 @@ class Product extends AbstractDocument
 ```
 
 ## Define filters
-Now filters have to be defined in configuration (`app/config/config.yml`):
+Now filters have to be defined in configuration. This example defines single `search_list` manager and some filters (`app/config/config.yml`):
 
 ```yaml
 ongr_filter_manager:
@@ -205,7 +205,46 @@ ongr_search_page:
     defaults:
         _controller: ONGRFilterManagerBundle:Manager:manager
         managerName: "search_list"
-        template: "AppBundle:search.html.twig"
+        template: "AppBundle::search.html.twig"
 ```
+
+As seen from this example already predefined action `ONGRFilterManagerBundle:Manager:manager` will be used. We provide previously defined `search_list` manager. Search page will be reachable via `/search`.
+Last parameter is template to use, see below for more information
+
 ## Templating
 
+Our template will be placed in AppBundle's `Resources/views/search.html.twig` file. This template will get `filter_manager` variable which contains all information related to our filtered list.
+
+# Listing documents from list
+
+Documents can be accessed through `filter_manager.getResult()`. To make a dummy list of results put following code to your template:
+
+```twig
+{% for product in filter_manager.getResult() %}
+    <ul>
+        <li>Title: {{ product.getTitle() }}</li>
+        <li>Color: {{ product.getColor() }}</li>
+        <li>Country: {{ product.getCountry() }}</li>
+        <li>Weight: {{ product.getWeight() }}</li>
+        <li>Image URL: {{ product.getImage() }}</li>
+    </ul>
+{% endfor %}
+```
+
+# Listing filters
+
+Previously we assigned several filters to `search_list` filter manager. They are accessible via `filter_manager.getFilters()`.
+
+This is an example how to print a list for color filter:
+
+```twig
+<ul>
+{% for choice in filter_manager.getFilters().color.getChoices() %}
+    <li>
+        <a href="{{ path(app.request.attributes.get('_route'), choice.getUrlParameters()) }}">{{ choice.getLabel() }}</a> ({{ choice.getCount() }})
+    </li>
+{% endfor %}
+</ul>
+```
+
+Now you have list of products and way to filter these products on given color.
