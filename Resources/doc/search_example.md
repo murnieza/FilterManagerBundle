@@ -13,6 +13,7 @@ In this example we will use `Product` documents:
 
 namespace AppBundle\Document;
 
+use ONGR\ElasticsearchBundle\Annotation as ES;
 use ONGR\ElasticsearchBundle\Document\AbstractDocument;
 
 /**
@@ -23,21 +24,21 @@ class Product extends AbstractDocument
     /**
      * @var string
      *
-     * @ES\Property(name="title", type="string", options={"index"="not_analysed"})
+     * @ES\Property(name="title", type="string", options={"index"="not_analyzed"})
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ES\Property(name="color", type="string", options={"index"="not_analysed"})
+     * @ES\Property(name="color", type="string", options={"index"="not_analyzed"})
      */
     private $color;
 
     /**
      * @var string
      *
-     * @ES\Property(name="country", type="string", options={"index"="not_analysed"})
+     * @ES\Property(name="country", type="string", options={"index"="not_analyzed"})
      */
     private $country;
 
