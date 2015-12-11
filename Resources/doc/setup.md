@@ -1,28 +1,21 @@
-Setup
-=====
+# Setup
 
-> Note: Documentation on bundle [usage].
 
-Step 1: Install FilterManager bundle
-------------------------------------
+## Step 1: Install FilterManager bundle
 
 FilterManager bundle is installed using [Composer].
 
-``` {.sourceCode .bash}
+```bash
 $ php composer.phar require ongr/filter-manager-bundle "~1.0"
 ```
 
-> **note**
->
-> Please note that filter manager requires Elasticsearch bundle, guide
-> on how to install it can be found [here].
+> Please note that filter manager requires Elasticsearch bundle, guide on how to install and configure it can be found [here](https://github.com/ongr-io/ElasticsearchBundle/blob/master/Resources/doc/setup.md).
 
-Step 2: Enable FilterManager bundle
------------------------------------
+## Step 2: Enable FilterManager bundle
 
 Enable Filter Manager bundle in your AppKernel:
 
-``` {.sourceCode .php}
+```php
 <?php
 // app/AppKernel.php
 
@@ -38,19 +31,18 @@ public function registerBundles()
 }
 ```
 
-Step 3: Add configuration for manager
--------------------------------------
+## Step 3: Add configuration for manager
 
 Add minimal configuration for FilterManager bundle.
 
-``` {.sourceCode .yaml}
+```yaml
 #app/config/config.yml
 ongr_filter_manager:
     managers:
         item_list:
             filters:
                 - sorting
-            repository: 'item'
+            repository: 'es.manager.default.item'
     filters:
         sort:
             sorting:
@@ -60,23 +52,17 @@ ongr_filter_manager:
                     - { label: Title descending, field: title, order: desc }
 ```
 
-> **note**
->
-> This is the basic example only, for more information about manager
-> configuration, please take a look at [manager] chapter.
-
-In this particular example, we defined a single manager named item\_list
-to filter documents from item repository, and we’ll be using the filter
-named sorting to sort the item list with title either descending or
+In this particular example, we defined a single manager named `item_list`
+to filter documents from item repository, and we will be using the filter
+named `sorting` to sort the item list with title either descending or
 ascending.
 
-Step 4: Add configuration for routing
--------------------------------------
+## Step 4: Add configuration for routing
 
 Add a simple route:
 
-``` {.sourceCode .yaml}
-#src/Acme/DemoBundle/Resources/config/routing.yml
+```yaml
+#src/AppBundle/Resources/config/routing.yml
 ongr_search_page:
     pattern: /list
     methods:  [GET]
@@ -90,18 +76,13 @@ This example will handle www.mypage.com/list route, rendering template
 AcmeDemoBundle:List:results.html.twig with an object with results passed
 to a view named filter\_manager.
 
-> **note**
->
-> You can also use your own custom controller specifying a route if
-> needed (example can be found at [usage] chapter).
+> You can also use your own custom controller specifying a route if needed (example can be found at [usage] chapter).
 
-Step 5: Use your new bundle
----------------------------
+## Step 5: Use your new bundle
 
 Usage documentation for the FilterManager bundle is available
 [here][usage].
 
   [usage]: usage.html
   [Composer]: https://getcomposer.org
-  [here]: http://ongr.readthedocs.org/en/latest/components/ElasticsearchBundle/setup.html
   [manager]: manager.html
