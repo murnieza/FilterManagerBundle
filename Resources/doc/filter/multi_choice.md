@@ -4,35 +4,8 @@ This filter is very similar to choice filter, but you can select multiple option
 It groups values of a repository in a specified field and returns available options.
 If you select one or more of the options, *multi choice filter* will return item list filtered by the selected options.
   
-For example, lets say we have `item` repository which contains the following data:
+## Configuration
 
-| item_id | item_color |  
-|---------|------------|
-| 1       | red        |
-| 2       | red        |
-| 3       | blue       |
-| 4       | green      |
-| 5       | blue       |
-  
-If we apply *multi choice filter* on field `item_color`, it will return
-  
-  
-| choices     |
-|-------------|
-| red         |
-| green       |
-| blue        |
-  
-We can then select multiple values from this list and get all items for it, let's say we select choices `blue` and `green`.
- 
-| item_id | item_color | 
-|---------|------------|
-| 3       | blue       |
-| 4       | green      |
-| 5       | blue       |
-  
-Configuration  
--------------  
 | Setting name           | Meaning                                                                                          |
 |------------------------|--------------------------------------------------------------------------------------------------|
 | `request_field`        | Request field used to view the selected page. (e.g. `www.page.com/?request_field=4`)             |
@@ -59,8 +32,8 @@ ongr_filter_manager:
                 field: country
 ``` 
 
-Twig view data
---------------
+## Twig view data
+
 View data returned by this filter to be used in template:
 
 | Method                  | Value                                            |
@@ -82,3 +55,27 @@ Each choice has its own data:
 | getCount()         | Return the number of items for this choice |
 | getLabel()         | Choice label                               |
 | getUrlParameters() | Returns a list of available choices        |
+
+## Usage in template example
+
+This example uses filter defined in [Search example](../examples/search_example.md). To display this filter we would add following code to template:
+
+```twig
+{% set choiceFilter = filter_manager.getFilters().color %}
+<ul>
+    {% for choice in choiceFilter.getChoices() %}
+        <li>
+            {% if choice.isActive() %}<b>{% endif %}
+                <a href="{{ path(app.request.attributes.get('_route'), choice.getUrlParameters()) }}">
+                    {{ choice.getLabel() }}</a>
+                ({{ choice.getCount() }})
+            {% if choice.isActive() %}</b>{% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% if choiceFilter.getState().isActive() %}
+    <a href="{{ path(app.request.attributes.get('_route'), choiceFilter.getResetUrlParameters()) }}">
+        Deactivate this filter
+    </a>
+{% endif %}
+```

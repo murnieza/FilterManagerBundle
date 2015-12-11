@@ -67,7 +67,7 @@ Each choice has its own data:
 
 ## Usage in template example
 
-This example uses filter defined in [Search example](../search_example.md). To display this filter we would add following code to template:
+This example uses filter defined in [Search example](../examples/search_example.md). To display this filter we would add following code to template:
 
 ```twig
 <ul>

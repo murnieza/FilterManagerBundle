@@ -1,27 +1,9 @@
-Match Filter  
-============  
-This filter searches for a matching value in the specified field.
-  
-For example, lets say we have `item` repository which contains the following data:
-  
-| item_id | item_color |
-|---------|------------|
-| 1       | red        |
-| 2       | red        |
-| 3       | blue       |
-| 4       | green      |
-| 5       | blue       |
-  
-If we apply *match filter* on item_colors field with a value of `red`, we will get:
-  
-| item_id | item_color |
-|---------|------------|
-| 1       | red        |
-| 2       | red        |
-  
-~~~~~~~~~~~~~  
-Configuration  
-~~~~~~~~~~~~~  
+# Match Filter
+
+This filter searches for a matching value in the specified field. Usual use case is search functionality.
+
+## Configuration
+
 | Setting name           | Meaning                                                                              |
 |------------------------|--------------------------------------------------------------------------------------|
 | `request_field`        | Request field used to specify filter value. (e.g. `www.page.com/?request_field=4`)   |
@@ -47,9 +29,8 @@ ongr_filter_manager:
                 field: title
 ```
 
-~~~~~~~~~~~~~~
-Twig view data  
-~~~~~~~~~~~~~~  
+## Twig view data
+
 View data returned by this filter to be used in template:
  
 | Method                  | Value                                            | 
@@ -61,8 +42,14 @@ View data returned by this filter to be used in template:
 | getTags()               | Lists all tags specified at filter configuration |
 | hasTag($tag)            | Checks if filter has the specific tag            |
   
-* `Choice filter &lt;choice.html&gt;`_
-* `Multi choice filter &lt;multi_choice.html&gt;`_
-* `Document field filter &lt;document_field.html&gt;`_
-* `Pager filter &lt;pager.html&gt;`_
-* `Sort filter &lt;sort.html&gt;`_
+
+## Usage in template example
+
+This example uses filter defined in [Search example](../examples/search_example.md). To display this filter we would add following code to template:
+
+```twig
+<form action="{{ path(app.request.attributes.get('_route')) }}" method="get">
+    <input name="q" placeholder="Search..." value="{{ filter_manager.getFilters().search.getState().getValue() }}">
+    <input type="submit" value="Search">
+</form>
+```

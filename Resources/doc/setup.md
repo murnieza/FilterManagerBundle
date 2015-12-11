@@ -74,4 +74,4 @@ This example will handle www.example.com/list route, rendering template AppBundl
 
 ## Step 5: Use your new bundle
 
-FilterManagerBundle is ready to use. You can take a look at our (search page example)[search_example.md].
+FilterManagerBundle is ready to use. You can take a look at our (search page example)[examples/search_example.md].

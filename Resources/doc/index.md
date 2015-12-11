@@ -1,27 +1,22 @@
-Filter Manager Bundle
-=====================
+# Filter Manager Bundle
 
-Installation
-------------
+## Installation
 
-Installation is a quick 5 step process:
+[Basic instalation and setup](setup.md)
 
-[SET UP](setup.md)
+## Usage examples
 
-Sample use case
---------------------
+- [Creating full search with filters](examples/search_example.md)
+- [Using custom controller](examples/custom_controller.md)
 
-Documentation provides example how search page can be implemented using Filter Manager Bundle. It can be found [there](search_example.md).
+## Filters
 
-Filters
--------
+List of filters provided by this bundle.
 
-Filters provided by this bundle.
-
-- [Choice](filters/choice.md)
-- [Custom filter](filters/custom_filter.md)
-- [Document field](filters/document_field.md)
-- [Match](filters/match.md)
-- [Multi choice](filters/multi_choice.md)
-- [Pager](filters/pager.md)
-- [Sort](filters/sort.md)
+- [Choice](filter/choice.md)
+- [Multi choice](filter/multi_choice.md)
+- [Match](filter/match.md)
+- [Pager](filter/pager.md)
+- [Sort](filter/sort.md)
+- [Custom filter](filter/custom_filter.md)
+- [Document field](filter/document_field.md)

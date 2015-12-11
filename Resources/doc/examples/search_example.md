@@ -179,6 +179,7 @@ ongr_filter_manager:
             color:
                 request_field: 'color'
                 field: color
+        multi_choice:
             country:
                 request_field: 'country'
                 field: country

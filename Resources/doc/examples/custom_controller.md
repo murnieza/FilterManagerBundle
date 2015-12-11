@@ -8,7 +8,7 @@ ONGRFilterManagerBundle:Manager:manager.
 
 Example:
 
-``` {.sourceCode .yaml}
+```yaml
 #src/Acme/DemoBundle/Resources/config/routing.yml
 ongr_search_page:
     pattern: /list
@@ -30,7 +30,7 @@ the container. This way you can add your custom variables if needed.
 
 Example:
 
-``` {.sourceCode .yaml}
+```yaml
 #src/Acme/DemoBundle/Resources/config/routing.yml
 
 ongr_search_page:
@@ -40,7 +40,7 @@ ongr_search_page:
         _controller: AcmeDemoBundle:List:index
 ```
 
-``` {.sourceCode .php}
+```php
 #src/Acme/DemoBundle/Controller/ListController.php
 
 /**
@@ -78,7 +78,7 @@ it’s whatever you call it in your controller.
 
 You can use [SearchResponse] to get results in your template:
 
-``` {.sourceCode .twig}
+```twig
 {% for item in filter_manager.result %}
     <b>{{ item.title }}</b>
 {% endfor %}
@@ -86,7 +86,7 @@ You can use [SearchResponse] to get results in your template:
 
 You can also use it to get data about your filter:
 
-``` {.sourceCode .twig}
+```twig
 Pager url parameters: {{ filter_manager.filters.pager.getUrlParameters() }}
 ```
 
