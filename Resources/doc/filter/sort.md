@@ -60,7 +60,7 @@ Example:
 
 ```yaml
 
-    # app/config/config.yml
+# app/config/config.yml
     
 ongr_filter_manager:
     managers:
