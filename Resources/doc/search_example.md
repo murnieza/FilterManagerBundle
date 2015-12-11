@@ -239,6 +239,6 @@ Because filters have different types usually representation of them is different
 - [Match](filter/match.md)
 - [Choice](filter/choice.md#usage-in-template-example)
 - [Multi choice](filter/multi_choice.md)
-- [Document field](filter/document_field.md)
 - [Pager](filter/pager.md)
 - [Sort](filter/sort.md)
+- [Document field](filter/document_field.md)
