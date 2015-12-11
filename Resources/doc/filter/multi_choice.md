@@ -46,18 +46,17 @@ Example:
   
     # app/config/config.yml
   
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - colors
-                repository: 'item'
-        filters:
-            multi_choice:
-                colors:
-                    request_field: 'colors'
-                    field: item_colors
-  
+ongr_filter_manager:
+    managers:
+        search_list:
+            filters:
+                - country
+            repository: 'es.manager.default.product'
+    filters:
+        multi_choice:
+            country:
+                request_field: 'country'
+                field: country
 ``` 
 
 Twig view data

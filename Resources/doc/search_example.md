@@ -172,6 +172,7 @@ ongr_filter_manager:
                 - country
                 - weight
                 - search_pager
+                - search_sort
             repository: 'es.manager.default.product'
     filters:
         choice:
@@ -193,6 +194,13 @@ ongr_filter_manager:
             search_pager:
                 request_field: 'page'
                 count_per_page: 5
+        sort:
+            search_sort:
+                request_field: 'sort'
+                choices:
+                  - { label: No sorting, key: score, field: _score, default: true }
+                  - { label: Heaviest to lightest, key: weight_desc, field: weight, order: desc }
+                  - { label: Lightest to heaviest, key: weight_asc, field: weight, order: asc  }
 ```
 
 ## Define route

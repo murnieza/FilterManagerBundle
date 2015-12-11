@@ -33,19 +33,18 @@ Example:
 ```yaml
   
     # app/config/config.yml
-  
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - search
-                repository: 'item'
-        filters:
-            match:
-                search:
-                    request_field: 'color'
-                    field: item_colors
-  
+    
+ongr_filter_manager:
+    managers:
+        search_list:
+            filters:
+                - search
+            repository: 'es.manager.default.product'
+    filters:
+        match:
+            search:
+                request_field: 'q'
+                field: title
 ```
 
 ~~~~~~~~~~~~~~

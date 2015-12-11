@@ -62,20 +62,20 @@ Example:
 
     # app/config/config.yml
     
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - list_sorting
-                repository: 'item'
-        filters:
-            sort:
-                list_sorting:
-                    request_field: 'sort'
-                    choices:
-                        - { label: Color ascending, field: item_color, default: true }
-                        - { label: Color descending, field: item_color, order: desc }
-                        - { label: 'In stock & cheap', fields: [{field: stock, order: desc}, {field: price}] }
+ongr_filter_manager:
+    managers:
+        search_list:
+            filters:
+                - search_sort
+            repository: 'es.manager.default.product'
+    filters:
+        sort:
+            search_sort:
+                request_field: 'sort'
+                choices:
+                  - { label: No sorting, key: score, field: _score, default: true }
+                  - { label: Heaviest to lightest, key: weight_desc, field: weight, order: desc }
+                  - { label: Lightest to heaviest, key: weight_asc, field: weight, order: asc  }
 
 ```
 

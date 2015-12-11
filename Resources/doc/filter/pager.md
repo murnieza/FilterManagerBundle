@@ -17,19 +17,17 @@ Example:
   
     # app/config/config.yml
   
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - list_pager
-                repository: 'item'
-        filters:
-            pager:
-                list_pager:
-                    request_field: 'page'
-                    count_per_page: 9
-                    max_pages: 6
-  
+ongr_filter_manager:
+    managers:
+        search_list:
+            filters:
+                - search_pager
+            repository: 'es.manager.default.product'
+    filters:
+        pager:
+            search_pager:
+                request_field: 'page'
+                count_per_page: 5
 ```
 
 ## Twig view data

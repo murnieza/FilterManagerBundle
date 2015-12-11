@@ -28,22 +28,17 @@ Example:
   
     # app/config/config.yml
   
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - colors
-                repository: 'item'
-        filters:
-            choice:
-                colors:
-                    request_field: 'colors'
-                    field: item_colors
-                    sort:
-                      type: _term
-                      order: asc
-                      priorities:
-                         - red
+ongr_filter_manager:
+    managers:
+        search_list:
+            filters:
+                - color
+            repository: 'es.manager.default.product'
+    filters:
+        choice:
+            color:
+                request_field: 'color'
+                field: color
 ```  
 
 ## Twig view data
