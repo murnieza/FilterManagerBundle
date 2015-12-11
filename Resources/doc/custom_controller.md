@@ -1,8 +1,6 @@
-Usage
-=====
+# Usage
 
-Default controller
-------------------
+## Default controller
 
 Once you set up your [*managers*] you don’t need to create a controller
 for each one, you can just use default manager controller
@@ -25,8 +23,7 @@ This specific example will render template
 AcmeDemoBundle:List:results.html.twig, with [SearchResponse] object from
 FiltersManager named item\_list.
 
-Custom controller
------------------
+## Custom controller
 
 You can still use custom controller by getting your needed manager from
 the container. This way you can add your custom variables if needed.
@@ -73,8 +70,7 @@ class ListController extends Controller
 }
 ```
 
-Template variables
-------------------
+## Template variables
 
 If you’re using default controller, [SearchResponse] from
 [FiltersManager] will be named filter\_manager in template, otherwise
