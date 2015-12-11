@@ -1,14 +1,13 @@
-Custom Filter
-=============
+# Custom Filter  
 
-There is possibility to add custom filters to filter managers.
-You must create filter class, define it as a service with ``ongr_filter_manager.filter`` tag.
+There is possibility to add custom filters to filter managers via tagged filter service.
+You must create filter class, define it as a service with `ongr_filter_manager.filter` tag.
   
-1. Create filter class  
-----------------------  
+## 1. Create filter class  
+ 
 Class must implement ``FilterInterface``.
   
-.. code-block:: php
+```php
   
    # File location: ONGR\FilterManagerBundle\Filters\FilterInterface.pnp
   
@@ -61,14 +60,14 @@ Class must implement ``FilterInterface``.
      * @return array
      */
     public function getTags();
+```
+  
+## 2. Defining service  
 
-
-2. Defining service
--------------------
-
-Filter service must be tagged with ``ongr_filter_manager.filter`` tag, ``filter_name`` node is required.
-
-.. code-block:: yaml
+Filter service must be tagged with ``ongr_filter_manager.filter`` tag, ``manager`` and ``filter_name`` nodes are required.
+Filter will be added to specified ``manager````FilterContainer``.
+  
+```yaml
   
     parameters:
       ongr_filter_manager.filter.foo_range.class: ONGR\FilterManagerBundle\Tests\app\fixture\Acme\TestBundle\Filters\FooRange\FooRange
@@ -80,11 +79,11 @@ Filter service must be tagged with ``ongr_filter_manager.filter`` tag, ``filter_
           - 'price'
           - 'price'
         tags:
-            - { name: ongr_filter_manager.filter, filter_name: foo_range }
-
+            - { name: ongr_filter_manager.filter, manager: foo_filters, filter_name: foo_range }
+```
 Arguments from service definition can be passed to filters constructor.
   
-.. code-block:: php
+```php
   
     # File location: ONGR\FilterManagerBundle\Tests\app\fixture\Acme\TestBundle\Filters\FooRange\FooRange.php;
   
@@ -94,34 +93,16 @@ Arguments from service definition can be passed to filters constructor.
      */
     public function __construct($requestField, $field)
     {  
-        $this-&gt;setRequestField($requestField);
-        $this-&gt;setField($field);
+        $this->setRequestField($requestField);
+        $this->setField($field);
     }
+```
+  
+Filter example can be found [here](https://github.com/ongr-io/FilterManagerBundle/blob/master/Tests/app/fixture/Acme/TestBundle/Filters/FooRange/FooRange.php).
+  
+Services [configuration](https://github.com/ongr-io/FilterManagerBundle/blob/master/Tests/app/fixture/Acme/TestBundle/Resources/config/services.yml).
+  
+  
+## 3. Using filter  
 
-Filter example can be found `here <https://github.com/ongr-io/FilterManagerBundle/blob/master/Tests/app/fixture/Acme/TestBundle/Filters/FooRange/FooRange.php>`_.
-
-Services `configuration <https://github.com/ongr-io/FilterManagerBundle/blob/master/Tests/app/fixture/Acme/TestBundle/Resources/config/services.yml>`_.
-
-3. Configuration
-----------------
-
-Add filter to specific manager at bundle's configuration. The same way as any other filter.
-
-Example:
-
-.. code-block:: yaml
-
-    # app/config/config.yml
-
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - foo_range
-                repository: 'item'
-..
-
-4. Using filter
----------------
-
-Filter can be used as other filters through ``FilterManager``, see FilterManager bundle usage `documentation <../usage.html>`_.
+Filter can be used as other filters trough ``FilterManager``, see FilterManager bundle usage `(documentation)[../usage.md]`.

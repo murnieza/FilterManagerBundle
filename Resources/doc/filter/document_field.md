@@ -1,5 +1,5 @@
-Document Field Filter  
-=====================  
+# Document Field Filter  
+
 This filter gets a document from request and filters results by its id on the specified field.
 This is very useful if you want to get documents by a category.
   
@@ -20,8 +20,8 @@ Lets say we apply *document filter* and send a request with a category item, whi
 |-------|-------------|
 | red   | 3           |
   
-Configuration  
--------------  
+## Configuration  
+ 
 | Setting name           | Meaning                                                                              |
 |------------------------|--------------------------------------------------------------------------------------|
 | `request_field`        | Request field used to specify filter value. (e.g. `www.page.com/?request_field=3`)   |
@@ -48,8 +48,8 @@ Example:
   
 ```  
 
-Twig view data
---------------
+## Twig view data
+
 View data returned by this filter to be used in template:
 
 | Method                  | Value                                            |
