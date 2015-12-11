@@ -32,6 +32,7 @@ ongr_filter_manager:
         foo_manager:
             filters:
                 - foo_range
+            repository: 'es.manager.default.product'
 ```
   
 ## 4. Using filter  
