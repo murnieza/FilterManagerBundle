@@ -149,9 +149,9 @@ Documents can be accessed through `filter_manager.getResult()`. To make a dummy 
 Previously we assigned several filters to `search_list` filter manager. They are accessible via `filter_manager.getFilters()`.
 
 Because filters have different types usually representation of them is different. Example of every filter can be found in dedicated filter type pages:
-- [Match](filter/match.md#usage-in-template-example)
-- [Choice](filter/choice.md#usage-in-template-example)
-- [Multi choice](filter/multi_choice.md#usage-in-template-example)
-- [Pager](filter/pager.md#usage-in-template-example)
-- [Sort](filter/sort.md#usage-in-template-example)
-- [Document field](filter/document_field.md)
+- [Match](../filter/match.md#usage-in-template-example)
+- [Choice](../filter/choice.md#usage-in-template-example)
+- [Multi choice](../filter/multi_choice.md#usage-in-template-example)
+- [Pager](../filter/pager.md#usage-in-template-example)
+- [Sort](../filter/sort.md#usage-in-template-example)
+- [Document field](../filter/document_field.md)
