@@ -2,7 +2,7 @@
 
 ## Step 1: Install FilterManager bundle
 
-FilterManager bundle is installed using (Composer)[https://getcomposer.org].
+FilterManager bundle is installed using [Composer](https://getcomposer.org).
 
 ```bash
 $ php composer.phar require ongr/filter-manager-bundle "~1.0"
@@ -22,11 +22,12 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        // Elasticsearch bundle - should be already added.
         new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
-        // The line you need to add.
         new ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
+        // ...
     );
+    
+    // ...
 }
 ```
 
@@ -36,42 +37,22 @@ Add minimal configuration for FilterManager bundle.
 
 ```yaml
 #app/config/config.yml
+
 ongr_filter_manager:
     managers:
-        item_list:
+        search_list:
             filters:
-                - sorting
-            repository: 'es.manager.default.item'
+                - country
+            repository: 'es.manager.default.product'
     filters:
-        sort:
-            sorting:
-                request_field: 'sort'
-                choices:
-                    - { label: Title ascending, field: title, default: true }
-                    - { label: Title descending, field: title, order: desc }
+        multi_choice:
+            country:
+                request_field: 'country'
+                field: country
 ```
 
 In this particular example, we defined a single manager named `item_list` to filter documents from item repository, and we will be using the filter named `sorting` to sort the item list with title either descending or ascending.
 
-## Step 4: Add configuration for routing
+## Step 4: Use your new bundle
 
-Add a simple route:
-
-```yaml
-#src/AppBundle/Resources/config/routing.yml
-ongr_search_page:
-    pattern: /list
-    methods:  [GET]
-    defaults:
-        _controller: ONGRFilterManagerBundle:Manager:manager
-        managerName: "item_list"
-        template: "AppBundle:List:results.html.twig"
-```
-
-This example will handle www.example.com/list route, rendering template AppBundle:List:results.html.twig with an object with results passed to a view named filter_manager.
-
-> You can also use your own custom controller specifying a route if needed (example can be found at [usage] chapter).
-
-## Step 5: Use your new bundle
-
-FilterManagerBundle is ready to use. You can take a look at our (search page example)[examples/search_example.md].
+FilterManagerBundle is ready to use. You can take a look at our [search page example](examples/search_example.md).
