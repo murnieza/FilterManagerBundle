@@ -2,6 +2,12 @@
 
 Filter manager is used for listing documents. It provides ties between commonly used filtering options and UI elements with Elasticsearch repositories.
 You can use it from a single controller.
+It is important to mention that sorting is everything what has impact on list, it can be:
+- filtering on specific field value object have (color, country etc.)
+- filtering range (price range, distance from point etc.)
+- paging. Paging changes representation of list, so it is considered to be filter and is treated like one.
+- sorting. Same as paging - sorting is filter in this bundle.
+- any custom factor which has influence (not always directly visible) on result list.
 
 [![](https://travis-ci.org/ongr-io/FilterManagerBundle.svg?branch=master)](https://travis-ci.org/ongr-io/FilterManagerBundle)
 [![](https://scrutinizer-ci.com/g/ongr-io/FilterManagerBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ongr-io/FilterManagerBundle/?branch=master)
