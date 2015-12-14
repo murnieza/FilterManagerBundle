@@ -85,12 +85,12 @@ In this particular example, we defined a single manager named `item_list` to fil
 
 ### Step 4: Use your new bundle
 
-FilterManagerBundle is ready to use. You can take a look at our [search page example](Resources/docs/examples/search_example.md).
+FilterManagerBundle is ready to use. You can take a look at our [search page example](Resources/doc/examples/search_example.md).
 
 
 ## Documentation
 
-The online documentation of the bundle is in in [Github](Resources/docs/index.md).
+The online documentation of the bundle is in in [Github](Resources/doc/index.md).
 
 ## License
 
