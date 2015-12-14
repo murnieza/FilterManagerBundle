@@ -5,7 +5,7 @@
 FilterManager bundle is installed using [Composer](https://getcomposer.org).
 
 ```bash
-$ php composer.phar require ongr/filter-manager-bundle "~1.0"
+$ composer require ongr/filter-manager-bundle "~1.0"
 ```
 
 > Please note that filter manager requires Elasticsearch bundle, guide on how to install and configure it can be found [here](https://github.com/ongr-io/ElasticsearchBundle/blob/master/Resources/doc/setup.md).
