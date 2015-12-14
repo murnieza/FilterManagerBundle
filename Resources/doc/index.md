@@ -8,6 +8,7 @@
 
 - [Creating full search with filters](examples/search_example.md)
 - [Using custom controller](examples/custom_controller.md)
+- [Using as JSON API](examples/json_api.md)
 
 ## Filters
 
