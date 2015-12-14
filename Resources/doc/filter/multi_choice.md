@@ -16,7 +16,6 @@ If you select one or more of the options, *multi choice filter* will return item
 Example:
   
 ```yaml
-  
 # app/config/config.yml
   
 ongr_filter_manager:

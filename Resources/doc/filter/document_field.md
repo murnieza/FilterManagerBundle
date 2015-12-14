@@ -31,21 +31,19 @@ Lets say we apply *document filter* and send a request with a category item, whi
 Example:
   
 ```yaml
-  
-    # app/config/config.yml
-  
-    ongr_filter_manager:
-        managers:
-            item_list:
-                filters:
-                    - colors
-                repository: 'item'
-        filters:
-            document_field:
-                colors:
-                    request_field: 'category'
-                    field: category_id
-  
+# app/config/config.yml
+
+ongr_filter_manager:
+    managers:
+        item_list:
+            filters:
+                - colors
+            repository: 'item'
+    filters:
+        document_field:
+            colors:
+                request_field: 'category'
+                field: category_id
 ```  
 
 ## Twig view data

@@ -26,143 +26,45 @@ class Product extends AbstractDocument
      *
      * @ES\Property(name="title", type="string", options={"index"="not_analyzed"})
      */
-    private $title;
+    public $title;
 
     /**
      * @var string
      *
      * @ES\Property(name="color", type="string", options={"index"="not_analyzed"})
      */
-    private $color;
+    public $color;
 
     /**
      * @var string
      *
      * @ES\Property(name="country", type="string", options={"index"="not_analyzed"})
      */
-    private $country;
+    public $country;
 
     /**
      * @var string
      *
      * @ES\Property(name="weight", type="float")
      */
-    private $weight;
+    public $weight;
 
     /**
      * @var string
      *
      * @ES\Property(name="image", type="string", options={"index"="no"})
      */
-    private $image;
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     *
-     * @return Product
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    /**
-     * @param string $color
-     *
-     * @return Product
-     */
-    public function setColor($color)
-    {
-        $this->color = $color;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * @param string $country
-     *
-     * @return Product
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @param string $weight
-     *
-     * @return Product
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param string $image
-     *
-     * @return Product
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
+    public $image;
 }
 
 ```
 
 ## Define filters
-Now filters have to be defined in configuration. This example defines single `search_list` manager and some filters (`app/config/config.yml`):
+Now filters have to be defined in configuration. This example defines single `search_list` manager and some filters:
 
 ```yaml
+# app/config/config.yml
+
 ongr_filter_manager:
     managers:
         search_list:
@@ -206,8 +108,10 @@ ongr_filter_manager:
 
 ## Define route
 
-Next step is to define route for search page, let's add following lines to `app/config/routing.yml`:
+Next step is to define route for search page, let's add following lines to routing:
 ```yaml
+# app/config/routing.yml
+
 ongr_search_page:
     pattern: /search
     methods:  [GET]
@@ -231,11 +135,11 @@ Documents can be accessed through `filter_manager.getResult()`. To make a dummy 
 ```twig
 {% for product in filter_manager.getResult() %}
     <ul>
-        <li>Title: {{ product.getTitle() }}</li>
-        <li>Color: {{ product.getColor() }}</li>
-        <li>Country: {{ product.getCountry() }}</li>
-        <li>Weight: {{ product.getWeight() }}</li>
-        <li>Image URL: {{ product.getImage() }}</li>
+        <li>Title: {{ product.title }}</li>
+        <li>Color: {{ product.color }}</li>
+        <li>Country: {{ product.country }}</li>
+        <li>Weight: {{ product.weight }}</li>
+        <li>Image URL: {{ product.image }}</li>
     </ul>
 {% endfor %}
 ```

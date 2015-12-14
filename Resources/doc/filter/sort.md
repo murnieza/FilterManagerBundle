@@ -35,7 +35,6 @@ Each object in `fields` array specifies sorting condition. Available parameters 
 Example:
 
 ```yaml
-
 # app/config/config.yml
     
 ongr_filter_manager:

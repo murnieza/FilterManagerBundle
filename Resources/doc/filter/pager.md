@@ -14,7 +14,6 @@ Filter which provides pagination functionality by returning documents for the se
 Example:
   
 ```yaml
-  
 # app/config/config.yml
   
 ongr_filter_manager:

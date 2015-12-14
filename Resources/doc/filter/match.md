@@ -13,7 +13,6 @@ This filter searches for a matching value in the specified field. Usual use case
 Example:
   
 ```yaml
-  
 # app/config/config.yml
     
 ongr_filter_manager:

@@ -36,7 +36,7 @@ public function registerBundles()
 Add minimal configuration for FilterManager bundle.
 
 ```yaml
-#app/config/config.yml
+# app/config/config.yml
 
 ongr_filter_manager:
     managers:

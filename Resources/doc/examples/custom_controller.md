@@ -9,7 +9,8 @@ ONGRFilterManagerBundle:Manager:manager.
 Example:
 
 ```yaml
-#src/Acme/DemoBundle/Resources/config/routing.yml
+# src/AppBundle/Resources/config/routing.yml
+
 ongr_search_page:
     pattern: /list
     methods:  [GET]
@@ -31,17 +32,17 @@ the container. This way you can add your custom variables if needed.
 Example:
 
 ```yaml
-#src/Acme/DemoBundle/Resources/config/routing.yml
+# src/AppBundle/Resources/config/routing.yml
 
 ongr_search_page:
     pattern: /list
     methods:  [GET]
     defaults:
-        _controller: AcmeDemoBundle:List:index
+        _controller: AppBundle:List:index
 ```
 
 ```php
-#src/Acme/DemoBundle/Controller/ListController.php
+#src/AppBundle/Controller/ListController.php
 
 /**
  * Controller for list pages.
@@ -73,7 +74,7 @@ class ListController extends Controller
 ## Template variables
 
 If you’re using default controller, [SearchResponse] from
-[FiltersManager] will be named filter\_manager in template, otherwise
+[FiltersManager] will be named filter_manager in template, otherwise
 it’s whatever you call it in your controller.
 
 You can use [SearchResponse] to get results in your template:

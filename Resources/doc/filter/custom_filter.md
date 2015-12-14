@@ -13,6 +13,8 @@ Class must implement [`FilterInterface`](https://github.com/ongr-io/FilterManage
 Filter service must be tagged with ongr_filter_manager.filter tag, filter_name node is required.
   
 ```yaml
+# app/config/services.yml
+
 services:
     ongr_filter_manager.filter.foo_range:
         class: ADD_CLASS
@@ -27,6 +29,8 @@ services:
 
 You can add custom filter in same way that you add regular filters. Say you want to add just created `foo_range` filter to `foo_manager`, your configuration would look like this:
 ```yaml
+# app/config/config.yml
+
 ongr_filter_manager:
     managers:
         foo_manager:
