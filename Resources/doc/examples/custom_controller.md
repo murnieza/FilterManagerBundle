@@ -2,7 +2,7 @@
 
 ## Default controller
 
-Once you set up your [*managers*] you don’t need to create a controller
+Once you set up your *managers* you don’t need to create a controller
 for each one, you can just use default manager controller
 ONGRFilterManagerBundle:Manager:manager.
 
@@ -94,7 +94,6 @@ Pager url parameters: {{ filter_manager.filters.pager.getUrlParameters() }}
 A complete list of parameters for each filter can be found can be found
 on [main page].
 
-  [*managers*]: manager.html
   [SearchResponse]: https://github.com/ongr-io/FilterManagerBundle/blob/master/Search/SearchResponse.php
   [FiltersManager]: https://github.com/ongr-io/FilterManagerBundle/blob/master/Search/FiltersManager.php
-  [main page]: index.html#filters
+  [main page]: ../index.md#filters

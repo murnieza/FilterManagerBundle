@@ -1,6 +1,6 @@
 # Search page example
 
-This example will be implemented on empty symfony standard project (can be previewed at [this](https://github.com/symfony/symfony-standard/tree/bfdf6292e14ee1dc24bda9476244437b715a6b6a) link).
+This example will be implemented on empty Symfony Standard project (can be previewed at [this](https://github.com/symfony/symfony-standard/tree/master) link).
 Documents will be defined in already created `AppBundle`.
 
 Make sure that you have ESB configured and working before continuing. More info about that in [official documentation](https://github.com/ongr-io/ElasticsearchBundle/blob/master/Resources/doc/setup.md).

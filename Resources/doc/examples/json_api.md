@@ -6,8 +6,8 @@ This example will be based on previous [search page example](search_example.md),
 
 ## Requirements
 
-To use filters as JSONs user have to define how project documents looks in JSON format. For this purpose we provide [`SerializableInterface`](https://github.com/ongr-io/FilterManagerBundle/blob/master/SerializableInterface.php) and every document which is defined in manager have to implement it.
-This interface have single public method `getSerializableData()` which have to be implemented and should return array representation of single document (this array will be passed to `json_encode()` eventually.)
+To get filtered results in JSON, user have to define how documents should be converted to JSON format. For this purpose we provide [`SerializableInterface`](https://github.com/ongr-io/FilterManagerBundle/blob/master/SerializableInterface.php) and every document which is defined in manager have to implement it.
+This interface have single public method `getSerializableData()` which have to be implemented and should return array representation of single document (this array will be passed to `json_encode()` eventually).
 Implementation of this method for `Product` could look like this:
 
 ```php
@@ -41,6 +41,8 @@ ongr_search_page:
 ## Usage 
 
 Now if you make a request to `example.com/search.json?pretty&country[0]=Ireland` you will get response similar to this one:
+
+> Add request parameter `pretty` to get human readable JSON response. It will return one-liner JSON response otherwise.
 
 ```json
 {

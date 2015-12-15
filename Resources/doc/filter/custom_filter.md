@@ -10,7 +10,7 @@ Class must implement [`FilterInterface`](https://github.com/ongr-io/FilterManage
   
 ## 2. Defining service  
 
-Filter service must be tagged with ongr_filter_manager.filter tag, filter_name node is required.
+Filter service must be tagged with `ongr_filter_manager.filter` tag, `filter_name` node is required.
   
 ```yaml
 # app/config/services.yml
@@ -41,4 +41,4 @@ ongr_filter_manager:
   
 ## 4. Using filter  
 
-Filter can be used as other filters trough ``FilterManager``, see one of our  [`examples`](../usage.md)`.
+Filter can be used as other filters trough ``FilterManager``, see one of our  [`examples`](../index.md#usage-examples).

@@ -2,7 +2,7 @@
 
 ## Installation
 
-[Basic instalation and setup](setup.md)
+[Basic instalation and setup](/README.md)
 
 ## Usage examples
 

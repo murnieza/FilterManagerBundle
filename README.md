@@ -2,7 +2,7 @@
 
 Filter manager is used for listing documents. It provides ties between commonly used filtering options and UI elements with Elasticsearch repositories.
 You can use it from a single controller.
-It is important to mention that sorting is everything what has impact on list, it can be:
+It is important to mention that filtering is everything what has impact on list, it can be:
 - filtering on specific field value object have (color, country etc.)
 - filtering range (price range, distance from point etc.)
 - paging. Paging changes representation of list, so it is considered to be filter and is treated like one.
@@ -70,18 +70,18 @@ ongr_elasticsearch:
 
 ongr_filter_manager:
     managers:
-        item_list:
+        item_list: # <- Filter manager name
             filters:
                 - country
             repository: 'es.manager.default.item'
     filters:
         multi_choice:
-            country:
+            country: # <- Filter name
                 request_field: 'country'
                 field: country
 ```
 
-In this particular example, we defined a single manager named `item_list` to filter documents from item repository, and we will be using the filter named `country` to filter on countries defined in document.
+In this particular example, we defined a single filter manager named `item_list` to filter documents from item repository, and we will be using the filter named `country` to filter on countries defined in document.
 
 ### Step 4: Use your new bundle
 
